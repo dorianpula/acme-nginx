@@ -44,7 +44,7 @@ def nginx_challenge(domain, token, thumbprint, vhost_conf):
 server {{
     listen 80;
     server_name {domain};
-    location /.well-known/acme-challenge/ {{
+    location ^~ /.well-known/acme-challenge/ {{
         alias {alias}/;
         try_files $uri =404;
     }}
